@@ -42,6 +42,6 @@ def delete_note(note_id: int):
 
 app.include_router(notes_router, prefix = "/api/notes", tags=['Notes'])
 
-@app.get("/api_healthcheck")
+@app.get("/api/healthcheck")
 def healthcheck():
     return {"status": "running", "data": {"path": "/api_healthcheck", "operation": "get", "path_operation_function": "healthcheck"}}
