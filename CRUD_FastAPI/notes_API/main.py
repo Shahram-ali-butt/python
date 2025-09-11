@@ -1,5 +1,5 @@
 from fastapi import FastAPI, APIRouter, status, HTTPException
-from schemas import NoteCreate, NoteOut
+from notes_API.schemas import NoteCreate, NoteOut
 from typing import List
 
 note_list: List[NoteOut] = []
@@ -25,10 +25,11 @@ def create_note(note: NoteCreate):
     return new_note
     
 @notes_router.put("/{note_id}", response_model=NoteOut)
-def update_note(note_id: int, note_body: str):
+def update_note(note_id: int, updated_note: NoteCreate):
     for note in note_list:
         if note.id == note_id:
-            note.body = note_body
+            note.title = updated_note.title
+            note.body = updated_note.body
             return note
     raise HTTPException(status_code=404, detail=f"Note with id: {note_id} not found")
         
