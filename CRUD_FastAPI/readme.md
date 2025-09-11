@@ -10,15 +10,18 @@ A simple FastAPI CRUD application.
    cd CRUD_FastAPI
 
 2. Create a virtual environment and install dependencies:
+   ```bash
     python -m venv .venv
     source .venv/bin/activate   # on Linux/Mac
     .venv\Scripts\activate      # on Windows
 
     pip install -r requirements.txt
 
-3. Run the app:
+4. Run the app:
+   ```bash
     uvicorn notes_API.main:app --reload
 
-4. Open your browser at:
+6. Open your browser at:
     API docs: http://127.0.0.1:8000/docs
+   <br>
     Health check: http://127.0.0.1:8000/api/healthchecker
